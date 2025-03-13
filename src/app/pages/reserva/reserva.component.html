@@ -4,7 +4,7 @@
   <div class="col-sm-4" style="background-color: #ecf0f1; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
       <p>
           <label style="font-weight: bold;">Numero_de_reserva:</label>
-          <input type="text" class="form-control" style="margin-bottom: 10px;" [(ngModel)]="reserva.id" />
+          <input type="text" class="form-control" style="margin-bottom: 10px;" [(ngModel)]="reserva.numero_de_reserva" />
       </p>
       <p>
           <label style="font-weight: bold;">Nombre:</label>
@@ -21,10 +21,10 @@
                   <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="this.insertarReserva()">Insertar</button>
               </td>
               <td>
-                  <button type="button" class="btn btn-warning" style="margin: 5px;" (click)="this.updatereserva()">Actualizar</button>
+                  <button type="button" class="btn btn-warning" style="margin: 5px;" (click)="this.updateReserva()">Actualizar</button>
               </td>
               <td>
-                  <button type="button" class="btn btn-danger" style="margin: 5px;" (click)="this.deletereserva()">Borrar</button>
+                  <button type="button" class="btn btn-danger" style="margin: 5px;" (click)="this.deleteReserva()">Borrar</button>
               </td>
               <td>
                   <button type="button" class="btn btn-success" style="margin: 5px;" (click)="this.limpiarFormulario()">Deshacer</button>
@@ -46,13 +46,13 @@
           </tr>
       </thead>
       <tbody>
-          @for (libro of reservas; track reserva.id) {
+          @for (reserva of reservas; track reserva.numero_de_reserva) {
               <tr style="border-bottom: 1px solid #bdc3c7;">
-                  <td style="padding: 10px;">{{ reserva.id }}</td>
+                  <td style="padding: 10px;">{{ reserva.numero_de_reserva }}</td>
                   <td style="padding: 10px;">{{ reserva.nombre }}</td>
                   <td style="padding: 10px;">{{ reserva.fecha }}</td>
                   <td style="padding: 10px;">
-                      <button type="button" class="btn btn-success" (click)="this.selectreserva(reserva)">Seleccionar</button>
+                      <button type="button" class="btn btn-success" (click)="this.selectReserva(reserva)">Seleccionar</button>
                   </td>
               </tr>
           }

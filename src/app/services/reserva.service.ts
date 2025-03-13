@@ -2,46 +2,46 @@ import { Injectable, inject } from '@angular/core';
 import { Reserva } from '../models/reserva.model';
 import { addDoc, collection, collectionData, deleteDoc, doc, Firestore, updateDoc } from '@angular/fire/firestore';
 import { first } from 'rxjs';
-import { tick } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
 })
-export class reservaservice {
+export class Reservaservice {
 
   private db: Firestore = inject(Firestore);
 
   constructor() { }
 
-  //Metodo para obtener todos los documentos de la coleccion
-  getreserva() {
-    const reservasCollection = collection(this.db, 'reservas');
-    return collectionData((reservasCollection), { idField: 'id' }).pipe(first());
+  // Método para obtener todos los documentos de la colección
+  getReservas() {
+    const reservasCollection = collection(this.db, 'reservas'); // Cambio 'reserva' -> 'reservas'
+    return collectionData(reservasCollection, { idField: 'id' }).pipe(first());
   }
 
-  //Metodo para agregar un documento a la coleccion
+  // Método para agregar un documento a la colección
   agregarReserva(reserva: Reserva) {
     const reservasCollection = collection(this.db, 'reservas');
     const reservaData = {
-      id: reserva.id,
+      numero_de_reserva: reserva.numero_de_reserva,
       fecha: reserva.fecha,
       nombre: reserva.nombre
     };
     addDoc(reservasCollection, reservaData);
   }
 
-  //Metodo para modificar un documento de la coleccion
+  // Método para modificar un documento de la colección
   modificarReserva(reserva: Reserva) {
-    const documentRef = doc(this.db, 'reservas', reserva.id);
+    const documentRef = doc(this.db, 'reservas', reserva.nombre); // Cambio 'reserva' -> 'reservas'
     updateDoc(documentRef, {
       fecha: reserva.fecha,
-      id: reserva.id,
+      numero_de_reserva: reserva.numero_de_reserva,
       nombre: reserva.nombre
-    })
+    });
   }
-   //Metodo para eliminar un documento de la coleccion
+
+  // Método para eliminar un documento de la colección
   eliminarReserva(reserva: Reserva) {
-    const documentRef = doc(this.db, 'reservas', reserva.id); // Cambio 'reserva' -> 'reservas'
+    const documentRef = doc(this.db, 'reservas', reserva.nombre); // Cambio 'reserva' -> 'reservas'
     deleteDoc(documentRef);
   }
 }
