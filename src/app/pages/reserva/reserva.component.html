@@ -1,0 +1,61 @@
+<div style="margin: 20px;">
+  <h1>Catalogo de reservas</h1>
+  <h4>Alta de libros</h4>
+  <div class="col-sm-4">
+      <p>
+          <label>id</label>
+          <input type="text" class="form-control"  [(ngModel)]="reserva.id" />
+      </p>
+      <p>
+          <label>Nombre</label>
+          <input type="text" class="form-control" [(ngModel)]="reserva.nombre" />
+      </p>
+      <p>
+          <label>Fecha</label>
+          <input type="text" class="form-control" [(ngModel)]="reserva.fecha" />
+      </p>
+
+
+      <table>
+          <tr>
+              <td>
+                  <button type="button" class="btn btn-primary" (click)="this.insertarReserva()">Insertar</button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-warning" (click)="this.updatereserva()">Actualizar</button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger" (click)="this.deletereserva()">Borrar</button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-success" (click)="this.limpiarFormulario()">Deshacer</button>
+              </td>
+          </tr>
+      </table>
+  </div>
+
+  <hr/>
+  <p></p>
+  <h4>Listado de reserva</h4>
+
+  <table class="table table-striped">
+      <thead>
+          <th>id</th>
+          <th>nombre</th>
+          <th>fecha</th>
+          <th>Seleccionar</th>
+      </thead>
+      <tbody>
+          @for (libro of reservas; track reserva.id) {
+              <tr>
+                  <td>{{ reserva.id }}</td>
+                  <td>{{ reserva.nombre }}</td>
+                  <td>{{ reserva.fecha }}</td>
+                  <td>
+                      <button type="button" class="btn btn-success" (click)="this.selectreserva(reserva)">Seleccionar</button>
+                  </td>
+              </tr>
+          }
+      </tbody>
+  </table>
+</div>

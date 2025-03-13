@@ -1,0 +1,61 @@
+<div style="margin: 20px;">
+  <h1>Catalogo de productos</h1>
+  <h4>Alta de productos</h4>
+  <div class="col-sm-4">
+      <p>
+          <label>id</label>
+          <input type="text" class="form-control"  [(ngModel)]="producto.id" />
+      </p>
+      <p>
+          <label>descripcion</label>
+          <input type="text" class="form-control" [(ngModel)]="producto.descripcion" />
+      </p>
+      <p>
+          <label>precio</label>
+          <input type="number" class="form-control" [(ngModel)]="producto.precio" />
+      </p>
+
+
+      <table>
+          <tr>
+              <td>
+                  <button type="button" class="btn btn-primary" (click)="this.insertartproducto()">Insertar</button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-warning" (click)="this.updateproducto()">Actualizar</button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-danger" (click)="this.deleteproducto()">Borrar</button>
+              </td>
+              <td>
+                  <button type="button" class="btn btn-success" (click)="this.limpiarproducto()">Deshacer</button>
+              </td>
+          </tr>
+      </table>
+  </div>
+
+  <hr/>
+  <p></p>
+  <h4>Listado de productos</h4>
+
+  <table class="table table-striped">
+      <thead>
+          <th>id</th>
+          <th>descripcion</th>
+          <th>prescio</th>
+          <th>Seleccionar</th>
+      </thead>
+      <tbody>
+          @for (producto of productos; track producto.id) {
+              <tr>
+                  <td>{{ producto.id }}</td>
+                  <td>{{ producto.descripcion }}</td>
+                  <td>{{ producto.precio }}</td>
+                  <td>
+                      <button type="button" class="btn btn-success" (click)="this.selectproducto(producto)">Seleccionar</button>
+                  </td>
+              </tr>
+          }
+      </tbody>
+  </table>
+</div>
