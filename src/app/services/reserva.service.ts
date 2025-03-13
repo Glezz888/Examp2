@@ -15,7 +15,7 @@ export class reservaservice {
 
   //Metodo para obtener todos los documentos de la coleccion
   getreserva() {
-    const reservasCollection = collection(this.db, 'productos');
+    const reservasCollection = collection(this.db, 'reservas');
     return collectionData((reservasCollection), { idField: 'id' }).pipe(first());
   }
 
@@ -23,8 +23,8 @@ export class reservaservice {
   agregarReserva(reserva: Reserva) {
     const reservasCollection = collection(this.db, 'reservas');
     const reservaData = {
-      fecha: reserva.fecha,
       id: reserva.id,
+      fecha: reserva.fecha,
       nombre: reserva.nombre
     };
     addDoc(reservasCollection, reservaData);
@@ -40,8 +40,8 @@ export class reservaservice {
     })
   }
    //Metodo para eliminar un documento de la coleccion
-      eliminarReserva(reserva: Reserva) {
-        const documentRef = doc(this.db, 'reserva', reserva.id);
-        deleteDoc(documentRef);
-      }
+  eliminarReserva(reserva: Reserva) {
+    const documentRef = doc(this.db, 'reservas', reserva.id); // Cambio 'reserva' -> 'reservas'
+    deleteDoc(documentRef);
+  }
 }

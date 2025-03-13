@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Reserva } from '../../models/reserva.model';
 import { reservaservice } from '../../services/reserva.service';
 import { firstValueFrom } from 'rxjs';
-import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-reserva',
@@ -13,48 +12,48 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrl: './reserva.component.css'
 })
 export class reservaComponent {
-  //Propiedades
-  reservas: any;
+  // Propiedades
+  reservas: any = [];
   reserva = new Reserva();
 
-  //Constructor
+  // Constructor
   constructor(private reservaservice: reservaservice) {
     this.getreservas();
   }
 
-   //Metodo que hace la peticion al sercice para obtener los libros
-   async getreservas(): Promise<void> {
+  // Método para obtener todas las reservas
+  async getreservas(): Promise<void> {
     this.reservas = await firstValueFrom(this.reservaservice.getreserva());
   }
 
-  //Metodo para agregar un libro desde el formulario
-  insertarReserva(){
-    this.reservaservice.agregarReserva(this.reserva);
-    this.getreservas();
+  // Método para agregar una reserva
+  async insertarReserva() {
+    await this.reservaservice.agregarReserva(this.reserva);
+    await this.getreservas();
     this.reserva = new Reserva();
   }
 
-  //Metodo para seleccionar un libro de la tabla
-  selectreserva(reservaSeleccionado: Reserva){
-    this.reserva = reservaSeleccionado;
+  // Método para seleccionar una reserva de la tabla
+  selectreserva(reservaSeleccionada: Reserva) {
+    this.reserva = { ...reservaSeleccionada };
   }
 
-
-  //Metodo para modificar un libro
-  updatereserva(){
-    this.reservaservice.modificarReserva(this.reserva);
-    this.getreservas();
-    this.reserva = new Reserva();
-  }
-  //Metodo para eliminar un libro
-   deletereserva(){
-    this.reservaservice.eliminarReserva(this.reserva);
-    this.getreservas();
+  // Método para modificar una reserva
+  async updatereserva() {
+    await this.reservaservice.modificarReserva(this.reserva);
+    await this.getreservas();
     this.reserva = new Reserva();
   }
 
-  //Metodo para limpiar formulario
-  limpiarFormulario(){
+  // Método para eliminar una reserva
+  async deletereserva() {
+    await this.reservaservice.eliminarReserva(this.reserva);
+    await this.getreservas();
+    this.reserva = new Reserva();
+  }
+
+  // Método para limpiar el formulario
+  limpiarFormulario() {
     this.reserva = new Reserva();
   }
 }
