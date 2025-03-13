@@ -3,8 +3,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
+  imports: [RouterLink],
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css'] // <- Corrección aquí
+  styleUrl: './menu.component.css'
 })
-export class MenuComponent { }
+export class MenuComponent{
 
+}

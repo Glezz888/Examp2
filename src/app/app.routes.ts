@@ -5,9 +5,9 @@ import { reservaComponent } from './pages/reserva/reserva.component';
 import { AsercaDeComponent } from './pages/aserca-de/aserca-de.component';
 
 export const routes: Routes = [
-    { path: 'Productos', component: ProductoComponent },
-    { path: 'Libros', component: LibroComponent },
-    { path: 'Reservas', component: reservaComponent },
+    { path: 'productos', component: ProductoComponent },
+    { path: 'libros', component: LibroComponent },
+    { path: 'reservas', component: reservaComponent },
     { path: 'about', component: AsercaDeComponent },
     { path: '**', redirectTo: 'about' },
 ];

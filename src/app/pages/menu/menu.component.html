@@ -1,17 +1,74 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #003366;">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/about">DWP</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" style="color: #fff; font-weight: bold;" routerLink="/about">DWP</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <button class="nav-link btn btn-dark" routerLink="/productos" routerLinkActive="active">Productos</button>
-        <button class="nav-link btn btn-dark" routerLink="/libros" routerLinkActive="active">Libros</button>
-        <button class="nav-link btn btn-dark" routerLink="/reservas" routerLinkActive="active">Reservas</button>
-        <button class="nav-link btn btn-dark" routerLink="/about" routerLinkActive="active">Acerca de</button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 hover-btn"
+          style="border-radius: 20px; transition: 0.3s;"
+          routerLink="/productos"
+          routerLinkActive="active"
+        >
+          Productos
+        </button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 hover-btn"
+          style="border-radius: 20px; transition: 0.3s;"
+          routerLink="/libros"
+          routerLinkActive="active"
+        >
+          Libros
+        </button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 hover-btn"
+          style="border-radius: 20px; transition: 0.3s;"
+          routerLink="/reservas"
+          routerLinkActive="active"
+        >
+          Reservas
+        </button>
+        <button
+          class="nav-link btn btn-outline-light mx-2 hover-btn"
+          style="border-radius: 20px; transition: 0.3s;"
+          routerLink="/about"
+          routerLinkActive="active"
+        >
+          Acerca de
+        </button>
       </div>
     </div>
   </div>
 </nav>
+
+<style>
+  /* Efecto hover para los botones */
+  .hover-btn:hover {
+    background-color: #ff6600; /* Naranja brillante al pasar el mouse */
+    border-color: #ff6600; /* Color del borde al hacer hover */
+    color: #fff; /* Texto blanco durante el hover */
+  }
+
+  /* Sombras y bordes redondeados */
+  .navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más intensa debajo de la barra */
+  }
+
+  .navbar-nav .nav-link {
+    transition: transform 0.2s; /* Animación para efecto elegante */
+  }
+
+  .navbar-nav .nav-link:hover {
+    transform: scale(1.1); /* Ligeramente más grande al hacer hover */
+  }
+</style>

@@ -1,57 +1,57 @@
-<div style="margin: 20px;">
-  <h1>Catalogo de productos</h1>
-  <h4>Alta de productos</h4>
-  <div class="col-sm-4">
+<div style="margin: 20px; font-family: Arial, sans-serif; color: #333;">
+  <h1 style="text-align: center; color: #2c3e50;">Catálogo de Productos</h1>
+  <h4 style="color: #2980b9;">Alta de Productos</h4>
+  <div class="col-sm-4" style="background-color: #ecf0f1; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
       <p>
-          <label>id</label>
-          <input type="text" class="form-control"  [(ngModel)]="producto.id" />
+          <label style="font-weight: bold;">ID:</label>
+          <input type="text" class="form-control" style="margin-bottom: 10px;" [(ngModel)]="producto.id" />
       </p>
       <p>
-          <label>descripcion</label>
-          <input type="text" class="form-control" [(ngModel)]="producto.descripcion" />
+          <label style="font-weight: bold;">Descripción:</label>
+          <input type="text" class="form-control" style="margin-bottom: 10px;" [(ngModel)]="producto.descripcion" />
       </p>
       <p>
-          <label>precio</label>
-          <input type="number" class="form-control" [(ngModel)]="producto.precio" />
+          <label style="font-weight: bold;">Precio:</label>
+          <input type="number" class="form-control" style="margin-bottom: 10px;" [(ngModel)]="producto.precio" />
       </p>
-
 
       <table>
           <tr>
               <td>
-                  <button type="button" class="btn btn-primary" (click)="this.insertartproducto()">Insertar</button>
+                  <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="this.insertartproducto()">Insertar</button>
               </td>
               <td>
-                  <button type="button" class="btn btn-warning" (click)="this.updateproducto()">Actualizar</button>
+                  <button type="button" class="btn btn-warning" style="margin: 5px;" (click)="this.updateproducto()">Actualizar</button>
               </td>
               <td>
-                  <button type="button" class="btn btn-danger" (click)="this.deleteproducto()">Borrar</button>
+                  <button type="button" class="btn btn-danger" style="margin: 5px;" (click)="this.deleteproducto()">Borrar</button>
               </td>
               <td>
-                  <button type="button" class="btn btn-success" (click)="this.limpiarproducto()">Deshacer</button>
+                  <button type="button" class="btn btn-success" style="margin: 5px;" (click)="this.limpiarproducto()">Deshacer</button>
               </td>
           </tr>
       </table>
   </div>
 
-  <hr/>
-  <p></p>
-  <h4>Listado de productos</h4>
+  <hr style="margin: 30px 0; border: 1px solid #bdc3c7;"/>
 
-  <table class="table table-striped">
-      <thead>
-          <th>id</th>
-          <th>descripcion</th>
-          <th>prescio</th>
-          <th>Seleccionar</th>
+  <h4 style="color: #2980b9;">Listado de Productos</h4>
+  <table class="table table-striped" style="border-collapse: collapse; width: 100%; margin-top: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <thead style="background-color: #34495e; color: white;">
+          <tr>
+              <th style="padding: 10px;">ID</th>
+              <th style="padding: 10px;">Descripción</th>
+              <th style="padding: 10px;">Precio</th>
+              <th style="padding: 10px;">Seleccionar</th>
+          </tr>
       </thead>
       <tbody>
           @for (producto of productos; track producto.id) {
-              <tr>
-                  <td>{{ producto.id }}</td>
-                  <td>{{ producto.descripcion }}</td>
-                  <td>{{ producto.precio }}</td>
-                  <td>
+              <tr style="border-bottom: 1px solid #bdc3c7;">
+                  <td style="padding: 10px;">{{ producto.id }}</td>
+                  <td style="padding: 10px;">{{ producto.descripcion }}</td>
+                  <td style="padding: 10px;">{{ producto.precio }}</td>
+                  <td style="padding: 10px;">
                       <button type="button" class="btn btn-success" (click)="this.selectproducto(producto)">Seleccionar</button>
                   </td>
               </tr>
